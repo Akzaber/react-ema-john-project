@@ -1,12 +1,47 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Header from './Components/Header/Header';
-import Shopping from './Components/Shopping/Shopping';
+import Main from './layouts/Main';
+import Shopping from './Components/Shopping/Shopping'
+import Orders from './Components/Orders/Orders';
+import Inventory from './Components/Inventory/Inventory';
+import About from './Components/About/About';
+import { shoppingAndCartLoder } from './Loders/ShoppingAndCart';
+
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main></Main>,
+      children: [
+        {
+          path: '/',
+          loader: () => fetch('products.json'),
+          element: <Shopping></Shopping>
+        },
+        {
+          path: '/order',
+          loader: shoppingAndCartLoder,
+          element: <Orders></Orders>
+        },
+        {
+          path: '/inventory',
+          element: <Inventory></Inventory>
+        },
+        {
+          path: '/about',
+          element: <About></About>
+        }
+      ]
+    },
+    {
+      path: '*',
+      element: <h1 style={{textAlign: 'center'}}>Hello People Page Not Found</h1>
+    }
+  ])
   return (
     <div className="App">
-      <Header></Header>
-      <Shopping></Shopping>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
