@@ -2,7 +2,6 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = ({cart, handleDeleteAll, children}) => {
-  console.log(children);
   let quantity = 0;
   let total = 0;
   let shipping = 0;
