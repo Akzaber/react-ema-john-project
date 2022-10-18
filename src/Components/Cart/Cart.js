@@ -21,7 +21,7 @@ const Cart = ({cart, handleDeleteAll, children}) => {
           <p>Total Shipping Charge: <strong>${shipping}</strong></p>
           <p>Tax: <strong>${tax}</strong></p>
           <h3>Grand Total: ${grandTotal}</h3>
-          <button onClick={handleDeleteAll}>Delete All</button>
+          {/* <button onClick={handleDeleteAll}>Delete All</button> */}
           {children}
     </div>
   );

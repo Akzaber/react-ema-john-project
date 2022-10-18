@@ -12,3 +12,8 @@
   text-decoration: none;
   margin-left: 32px;
 }
+.btn-logout{
+  margin-left: 10px;
+  border: 1px solid white;
+  cursor: pointer;
+}

@@ -5,4 +5,5 @@
 4. make sure you use the children.
 5. export AuthContext.
 6. get form Data.
+7. getAuth in the UserContext.
 */ 
